@@ -2,4 +2,7 @@
     <string name="app_name">Sunny</string>
     <string name="add_plan">予定追加</string>
     <string name="log_out">ログアウト</string>
+    <string name="ameritu_score">雨率スコア</string>
+    <string name="score">0</string>
+    <string name="ranking_name">ランキング</string>
 </resources>
