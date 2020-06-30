@@ -5,4 +5,5 @@
     <string name="ameritu_score">雨率スコア</string>
     <string name="score">0</string>
     <string name="ranking_name">ランキング</string>
+    <string name="total_precipitation">総降水量</string>
 </resources>
