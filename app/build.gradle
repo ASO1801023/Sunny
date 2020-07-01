@@ -4,8 +4,6 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
-apply plugin: 'com.google.gms.google-services'
-
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -34,7 +32,4 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-
-    //firebase
-    implementation 'com.google.firebase:firebase-analytics:17.2.2'
 }
