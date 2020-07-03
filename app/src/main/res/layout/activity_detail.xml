@@ -2,9 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/flagment_ameritu_score"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".detail">
+    tools:context=".detail"
+    tools:visibility="visible">
 
     <Button
         android:id="@+id/add_plan"
@@ -66,5 +68,15 @@
         android:text="@string/total_precipitation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <fragment
+        android:id="@+id/fragment_ameritu_score"
+        android:name="jp.ac.asojuku.sunny.fragment_ameritu_score"
+        android:layout_width="@dimen/ameritu_score_width"
+        android:layout_height="@dimen/ameritu_score_height"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
