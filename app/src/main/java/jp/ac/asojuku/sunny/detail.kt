@@ -13,7 +13,7 @@ class detail : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        //雨率スコア
+
         this.ameritu_score.setOnClickListener{
             val fragment = fragment_ameritu_score();
             val fragmentManager = this.supportFragmentManager;

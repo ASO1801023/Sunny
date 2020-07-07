@@ -29,6 +29,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
+        detail_btn.setOnClickListener {
+            val intent = Intent(this, detail::class.java)
+            startActivity(intent)
+        }
     }
 
     public override fun onStart() {
