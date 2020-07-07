@@ -14,10 +14,13 @@ class detail : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        this.ameritu_score.setOnClickListener{
-            val fragment = fragment_ameritu_score();
-            val fragmentManager = this.supportFragmentManager;
-            val fragmentTransaction = fragmentManager.beginTransaction();
+        ameritu_score.setOnClickListener{
+            val fragment = fragment_ameritu_score()
+            val fragmentManager = this.supportFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.container, fragment)
+                                .addToBackStack(null)
+                                .commit()
 
         }
     }
