@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.view.Window
-import android.view.WindowManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -17,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private var mGoogleSignInClient: GoogleSignInClient? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,10 +28,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        detail_btn.setOnClickListener {
-            val intent = Intent(this, detail::class.java)
+        //画面遷移
+        /*detail_btn.setOnClickListener {
+            val intent = Intent(this, DetailActivity::class.java)
             startActivity(intent)
-        }
+
+        }*/
     }
 
     public override fun onStart() {
