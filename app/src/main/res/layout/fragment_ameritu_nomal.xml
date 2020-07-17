@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AmerituNomalFragment" >
+    tools:context=".AmerituNomalFragment">
 
     <ImageView
         android:id="@+id/NomalPhoto"
@@ -16,4 +16,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/yourscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:text="@string/your_score"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/score"
+        app:layout_constraintStart_toStartOf="@+id/NomalPhoto"
+        app:layout_constraintTop_toTopOf="@+id/score" />
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="65dp"
+        android:text="@string/score"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="@+id/NomalPhoto"
+        app:layout_constraintTop_toTopOf="@+id/NomalPhoto" />
 </androidx.constraintlayout.widget.ConstraintLayout>
