@@ -22,14 +22,19 @@ class DetailActivity : AppCompatActivity() {
         super.onResume()
 
         this.ameritu_score.setOnClickListener{
-            val database = FirebaseDatabase.getInstance().getReference().child("user1").child("score")
+            val database = FirebaseDatabase.getInstance().getReference().child("user3").child("score")
 
             database.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     var score = snapshot.value as Long
 
+                    val bundle = Bundle()
+                    bundle.putLong("value", score)
+
+
                     if (score <= 45) { //晴れ
                         val fragment = AmerituSunnyFragment()
+                        fragment.arguments = bundle
                         val fragmentManager = supportFragmentManager
                         val fragmentTransaction = fragmentManager.beginTransaction()
                         fragmentTransaction.replace(R.id.container,fragment)//画面の「id:container」の部分にフラグメントを切り替え
@@ -37,6 +42,7 @@ class DetailActivity : AppCompatActivity() {
                             .commit()//トランザクション完了
                     } else if (score in 46..55){ //普通
                         val fragment = AmerituNomalFragment()
+                        fragment.arguments = bundle
                         val fragmentManager = supportFragmentManager
                         val fragmentTransaction = fragmentManager.beginTransaction()
                         fragmentTransaction.replace(R.id.container,fragment)
@@ -44,6 +50,7 @@ class DetailActivity : AppCompatActivity() {
                             .commit()
                     } else if (score >= 56){ //雨
                         val fragment = AmerituRainyFragment()
+                        fragment.arguments = bundle
                         val fragmentManager = supportFragmentManager
                         val fragmentTransaction = fragmentManager.beginTransaction()
                         fragmentTransaction.replace(R.id.container,fragment)

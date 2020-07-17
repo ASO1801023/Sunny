@@ -33,17 +33,6 @@ class AmerituSunnyFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-        val database = FirebaseDatabase.getInstance().getReference().child("user1").child("score")
-        database.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                var title = snapshot.value as Long
-                score.text = title.toString()
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                //エラー処理
-            }
-        })
     }
 
     override fun onCreateView(
@@ -52,6 +41,14 @@ class AmerituSunnyFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_ameritu_sunny, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val num = arguments?.getLong("value").toString()
+        if(num != null) {
+            score.setText(num)
+        }
     }
 
     companion object {
