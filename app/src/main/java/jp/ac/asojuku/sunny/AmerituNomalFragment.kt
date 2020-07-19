@@ -5,11 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.fragment_ameritu_sunny.*
+import kotlinx.android.synthetic.main.fragment_ameritu_nomal.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,9 +40,9 @@ class AmerituNomalFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val num = arguments?.getLong("value").toString()
+        val num = arguments?.getString("value")
         if(num != null) {
-            score.setText(num)
+            score.setText("あなたのスコアは $num")
         }
     }
 

@@ -22,41 +22,46 @@ class DetailActivity : AppCompatActivity() {
         super.onResume()
 
         this.ameritu_score.setOnClickListener{
-            val database = FirebaseDatabase.getInstance().getReference().child("user3").child("score")
+            val database = FirebaseDatabase.getInstance().getReference().child("user4").child("score")
 
             database.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    var score = snapshot.value as Long
+                    var score = snapshot.value
 
                     val bundle = Bundle()
-                    bundle.putLong("value", score)
+                    bundle.putString("value", "$score")
 
+                    if (score != null) {
 
-                    if (score <= 45) { //晴れ
-                        val fragment = AmerituSunnyFragment()
-                        fragment.arguments = bundle
-                        val fragmentManager = supportFragmentManager
-                        val fragmentTransaction = fragmentManager.beginTransaction()
-                        fragmentTransaction.replace(R.id.container,fragment)//画面の「id:container」の部分にフラグメントを切り替え
-                            .addToBackStack(null)//元のフラグメントをバックスタックに保存（今回は何もしない ）
-                            .commit()//トランザクション完了
-                    } else if (score in 46..55){ //普通
-                        val fragment = AmerituNomalFragment()
-                        fragment.arguments = bundle
-                        val fragmentManager = supportFragmentManager
-                        val fragmentTransaction = fragmentManager.beginTransaction()
-                        fragmentTransaction.replace(R.id.container,fragment)
-                            .addToBackStack(null)
-                            .commit()
-                    } else if (score >= 56){ //雨
-                        val fragment = AmerituRainyFragment()
-                        fragment.arguments = bundle
-                        val fragmentManager = supportFragmentManager
-                        val fragmentTransaction = fragmentManager.beginTransaction()
-                        fragmentTransaction.replace(R.id.container,fragment)
-                            .addToBackStack(null)
-                            .commit()
-                    } else { //データなし
+                        score = score as Long
+
+                        //雨率判定
+                        if (score <= 45) { //晴れ
+                            val fragment = AmerituSunnyFragment()
+                            fragment.arguments = bundle
+                            val fragmentManager = supportFragmentManager
+                            val fragmentTransaction = fragmentManager.beginTransaction()
+                            fragmentTransaction.replace(R.id.container,fragment)//画面の「id:container」の部分にフラグメントを切り替え
+                                .addToBackStack(null)//元のフラグメントをバックスタックに保存（今回は何もしない ）
+                                .commit()//トランザクション完了
+                        } else if (score in 46..55){ //普通
+                            val fragment = AmerituNomalFragment()
+                            fragment.arguments = bundle
+                            val fragmentManager = supportFragmentManager
+                            val fragmentTransaction = fragmentManager.beginTransaction()
+                            fragmentTransaction.replace(R.id.container,fragment)
+                                .addToBackStack(null)
+                                .commit()
+                        } else if (score >= 56){ //雨
+                            val fragment = AmerituRainyFragment()
+                            fragment.arguments = bundle
+                            val fragmentManager = supportFragmentManager
+                            val fragmentTransaction = fragmentManager.beginTransaction()
+                            fragmentTransaction.replace(R.id.container,fragment)
+                                .addToBackStack(null)
+                                .commit()
+                        }
+                    } else { //scoreがnullの場合
                         val fragment = UnknownFragment()
                         val fragmentManager = supportFragmentManager
                         val fragmentTransaction = fragmentManager.beginTransaction()
