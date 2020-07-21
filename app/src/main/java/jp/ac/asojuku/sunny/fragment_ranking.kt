@@ -33,7 +33,7 @@ class fragment_ranking : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
 
-        val database = FirebaseDatabase.getInstance().getReference().child("user1").child("name")
+        /*val database = FirebaseDatabase.getInstance().getReference().child("user1").child("name")
 
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -44,7 +44,7 @@ class fragment_ranking : Fragment() {
             override fun onCancelled(error: DatabaseError) {
                 //エラー処理
             }
-        })
+        })*/
     }
 
     override fun onCreateView(

@@ -22,7 +22,7 @@ class DetailActivity : AppCompatActivity() {
         super.onResume()
 
         this.ameritu_score.setOnClickListener{
-            val database = FirebaseDatabase.getInstance().getReference().child("user4").child("score")
+            val database = FirebaseDatabase.getInstance().getReference().child("user2").child("score")
 
             database.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
