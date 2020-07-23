@@ -10,6 +10,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.fragment_ranking.*
+import kotlinx.android.synthetic.main.fragment_unknown.*
+import java.lang.StringBuilder
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,18 +35,38 @@ class fragment_ranking : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
 
-        /*val database = FirebaseDatabase.getInstance().getReference().child("user1").child("name")
+        var database = FirebaseDatabase.getInstance().getReference().child("users").orderByChild("score")
 
-        database.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                var title = snapshot.value as String
-                test.text = title
+        var getdata = object : ValueEventListener {
+            override fun onDataChange(p0: DataSnapshot) {
+                var num = 1
+                for(i in p0.children) {
+                    var score = i.child("score").getValue()
+                    if(score != null){
+                        var name = i.child("name").getValue() as String
+                        when {
+                            num == 1 -> Text1.setText(name)
+                            num == 2 -> Text2.setText(name)
+                            num == 3 -> Text3.setText(name)
+                            num == 4 -> Text4.setText(name)
+                            num == 5 -> Text5.setText(name)
+                            num == 6 -> Text6.setText(name)
+                            num == 7 -> Text7.setText(name)
+                            num == 8 -> Text8.setText(name)
+                            num == 9 -> Text9.setText(name)
+                            num == 10 -> Text10.setText(name)
+                        }
+                        num++
+                    }
+                }
             }
-
-            override fun onCancelled(error: DatabaseError) {
+            override fun onCancelled(p0: DatabaseError) {
                 //エラー処理
             }
-        })*/
+        }
+        database.addValueEventListener(getdata)
+        database.addListenerForSingleValueEvent(getdata)
+
     }
 
     override fun onCreateView(

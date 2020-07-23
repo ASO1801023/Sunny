@@ -16,4 +16,5 @@
     <string name="detail_name">detailに遷移</string>
     <string name="unknown">表示するためのデータが足りません</string>
     <string name="score">あなたのスコアはXX</string>
+    <string name="no_user_data">No user data</string>
 </resources>
